@@ -1,0 +1,265 @@
+body {
+  
+}
+
+.navbar-default {
+  border: 0px;
+  background: none;
+}
+.navbar-brand {
+  height: auto;
+}
+.container-fluid {
+  padding-left: 0px;
+  padding-right: 0px;
+}
+.navbar {
+  margin-bottom: 0px;
+}
+.logo {
+  display: block;
+  max-width: 250px;
+}
+ul.navbar-nav {
+  margin-top: 15px;
+}
+ul.navbar-nav li.active a {
+  background: none !important;
+  border-bottom: 2px solid #ccc;
+}
+
+button.navbar-toggle {
+  margin-top: 20px;
+}
+
+.contacts {
+  color: #af2c27;
+  font-size: 18px;
+  font-weight: 400;
+  text-align: right;
+  float: right;
+  margin-top: 15px;
+  padding: 10px 0px 10px 20px;
+  margin-left: 20px;
+  border-left: 1px solid #ddd;
+}
+.contacts img {
+  width: 25px;
+  height: 25px;
+}
+#contacts-bottom {
+  display: none;
+  border-left: 0px;
+  padding: 0px;
+  padding-bottom: 10px;
+  margin-top: -30px;
+}
+#contacts-right {
+  display: none;
+  border-left: 0px;
+  border-right: 1px solid #ddd;
+  padding-right: 15px;
+  margin-right: 20px;
+}
+#contacts-middle {
+  display: none;
+  border-left: 0px;
+  float: none;
+  margin: 0px;
+  padding: 0px 10px 10px 10px;
+  clear: both;
+  text-align: center;
+}
+
+
+@media (max-width: 991px) {
+  #contacts-top {
+    display: none;
+  }
+  #contacts-bottom {
+    display: block;
+  }
+  ul.navbar-nav {
+    margin-top: 0px;
+  }  
+}
+
+@media (max-width: 767px) {
+  #contacts-bottom {
+    display: none;
+  }
+  #contacts-right {
+    display: block;
+  }
+}
+
+@media (max-width: 565px) {
+  #contacts-right {
+    display: none;
+  }
+  #contacts-middle {
+    display: block;
+  }
+}
+
+.info {
+  border-bottom: 1px solid #dddcda;
+  padding-top: 20px;
+  padding-bottom: 40px;
+}
+.info .col {
+  
+}
+.info .col img {
+  width: 150px;
+  opacity: 0.7;
+}
+.info h3 {
+  color: #af2c27;
+  font-size: 28px;
+  font-weight: 200;
+  text-align: center;
+  margin-bottom: 30px;
+  padding-bottom: 20px;
+  margin-top: 10px;
+  border-bottom: 1px dotted #ccc;
+}
+.info h3 strong {
+  text-transform: uppercase;
+  font-weight: 600;
+}
+.info h4 {
+  font-size: 22px;
+  font-weight: 200;
+  text-transform: uppercase;
+}
+.info .col p {
+  font-size: 16px;
+  font-weight: 200;
+  color: #777;
+  padding-right: 20px;
+}
+
+@media (max-width: 767px) {
+  .info .col img {
+    margin: auto;
+  }
+  .info .delivery-bottom {
+    margin-bottom: 30px;
+  }
+}
+
+.about {
+  background: #f6f5f3;
+}
+
+.about .bg-bar{
+  position: absolute;
+  margin-top: -40px;
+  margin-left: 50px;
+  width: 767px;
+  height: 487px;
+}
+
+
+.about .about-img img {
+  height: 487px;
+  float: right;
+  margin-top: -80px;
+}
+@media (max-width: 767px) {
+  .about .about-img img {
+    height: auto;
+  }
+  .logos img {
+    width: 100%;
+  }
+}
+.logos img {
+  max-width: 447px;
+}
+
+.about h3 {
+  display: table;
+  font-size: 28px;
+  font-weight: 300;
+  margin-top: 40px;
+  margin-bottom: 30px;
+  border-bottom: 1px dotted #ccc;
+  padding-bottom: 10px;
+}
+.about h3 strong{
+  font-weight: 600;
+  color: #af2c27;
+}
+.about h4 {
+  font-size: 22px;
+  font-weight: 200;
+  margin-bottom: 30px;
+  color: #777;
+}
+.about p, .about ul {
+  font-size: 16px;
+  font-weight: 300;
+  list-style: none;
+}
+.about ul li:before {
+  content: "\0BB \020";
+}
+.about .about-img-clear {
+  display: none;
+  clear: both;
+}
+@media (max-width: 1199px) {
+  .about .about-img-clear {
+    display: block;
+  }
+}
+
+.footer {
+  padding-top: 20px;
+  padding-bottom: 20px;
+  color: #aaa;
+  font-weight: 300;
+  border-top: 1px solid #dddcda;
+}
+.footer ul {
+  list-style: none;
+}
+.footer .footer-left {
+  
+}
+.footer .footer-middle {
+  text-align: center;
+}
+.footer .footer-middle ul {
+  padding: 0px;
+}
+.footer .footer-middle ul li {
+  border-bottom: 1px dotted #ddd;
+  padding: 5px;
+}
+.footer .footer-middle ul li:before {
+  content: "\0BB \020";
+}
+
+.footer .footer-right {
+  text-align: right;
+}
+.footer .footer-right ul li:before {
+  content: "\0BB \020";
+}
+.footer .footer-right img.logo-bw {
+  width: 150px;
+  opacity: 0.7;
+}
+.footer .footer-right .social-links img {
+  width: 25px;
+  opacity: 0.5;
+}
+
+@media (max-width: 767px) {
+  .footer .footer-left, .footer .footer-middle, .footer .footer-right {
+    margin-bottom: 20px;
+  }
+}

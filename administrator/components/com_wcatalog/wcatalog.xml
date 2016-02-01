@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<extension type="component" version="3.1" method="upgrade">
+	<name>com_wcatalog</name>
+	<author>WhiteOf Corp</author>
+	<creationDate>July 2013</creationDate>
+	<copyright>(C) 2012 - 2013 WhiteOf, Corp. All rights reserved.</copyright>
+	<license>GNU General Public License version 2 or later; see	LICENSE.txt</license>
+	<authorEmail>info@whiteof.com</authorEmail>
+	<authorUrl>www.whiteof.com</authorUrl>
+	<version>1.0.0</version>
+	<description>COM_WCATALOG_XML_DESCRIPTION</description>
+
+	<install> <!-- Runs on install -->
+		<sql>
+			<file driver="mysql" charset="utf8">sql/install.mysql.utf8.sql</file>
+		</sql>
+	</install>
+	<uninstall> <!-- Runs on uninstall -->
+		<sql>
+			<file driver="mysql" charset="utf8">sql/uninstall.mysql.utf8.sql</file>
+		</sql>
+	</uninstall>
+	<files folder="site">
+		<filename>controller.php</filename>
+		<filename>index.html</filename>
+		<filename>wcatalog.php</filename>
+		<folder>models</folder>
+		<folder>views</folder>
+	</files>
+	<languages folder="site">
+		<language tag="en-GB">language/en-GB.com_wcatalog.ini</language>
+	</languages>
+	<administration>
+		<menu img="class:newsfeeds">com_wcatalog</menu>
+		<submenu>
+			<menu link="option=com_wcatalog&amp;view=categories" view="categories" img="class:wcatalog"
+				alt="Wcatalog/Categories">com_wcatalog_categories</menu>		
+			<menu link="option=com_wcatalog&amp;view=products" view="products" img="class:wcatalog"
+				alt="Wcatalog/Products">com_wcatalog_products</menu>
+		</submenu>
+		<files folder="admin">
+			<filename>controller.php</filename>
+			<filename>index.html</filename>
+			<filename>wcatalog.php</filename>
+			<folder>controllers</folder>
+			<folder>helpers</folder>
+			<folder>models</folder>
+			<folder>sql</folder>
+			<folder>tables</folder>
+			<folder>views</folder>
+		</files>
+		<languages folder="admin">
+			<language tag="en-GB">language/en-GB.com_wcatalog.ini</language>
+			<language tag="en-GB">language/en-GB.com_wcatalog.sys.ini</language>
+		</languages>
+	</administration>
+</extension>
