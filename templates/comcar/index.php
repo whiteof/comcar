@@ -134,93 +134,10 @@
 		</div>
 		
 		<?php if ($this->countModules('position-3')) : ?>
-			<div class="banner">
-				<img src="<?php echo $this->baseurl . '/images/slide01.jpg' ?>" id="banner-bg" />
-				<div class="bar">
-					<div class="bottom-bar">
-						<div class="container">
-							<div class="banner-menu">
-								<h2>Комфорт и безопасность Вашего автомобиля!</h2>
-								<div class="row">
-									<div class="col-lg-3 col-md-3 col-sm-4 col-xs-6">
-										<div class="banner-menu-item">
-											<a href="#">
-												<div class="banner-menu-item-image-container">
-													<img class="img-responsive" src="<?php echo $this->baseurl . '/images/menu/menu01.jpg' ?>" />
-												</div>
-												<p>Стальные защиты</p>
-											</a>
-										</div>
-									</div>
-									<div class="col-lg-3 col-md-3 col-sm-4 col-xs-6">
-										<div class="banner-menu-item">
-											<a href="#">
-												<div class="banner-menu-item-image-container">
-													<img class="img-responsive" src="<?php echo $this->baseurl . '/images/menu/menu02.jpg' ?>" />
-												</div>
-												<p>Алюминиевые защиты</p>
-											</a>
-										</div>
-									</div>
-									<div class="col-lg-3 col-md-3 col-sm-4 col-xs-6">
-										<div class="banner-menu-item">
-											<a href="#">
-												<div class="banner-menu-item-image-container">
-													<img class="img-responsive" src="<?php echo $this->baseurl . '/images/menu/menu03.jpg' ?>" />
-												</div>
-												<p>Амортизаторы капота</p>
-											</a>
-										</div>
-									</div>
-									<div class="col-lg-3 col-md-3 col-sm-4 col-xs-6">
-										<div class="banner-menu-item">
-											<a href="#">
-												<div class="banner-menu-item-image-container">
-													<img class="img-responsive" src="<?php echo $this->baseurl . '/images/menu/menu04.jpg' ?>" />
-												</div>
-												<p>Навесное оборудование</p>
-											</a>
-										</div>
-									</div>
-									<div class="col-lg-3 col-md-3 col-sm-4 col-xs-6">
-										<div class="banner-menu-item">
-											<a href="#">
-												<div class="banner-menu-item-image-container">
-													<img class="img-responsive" src="<?php echo $this->baseurl . '/images/menu/menu06.jpg' ?>" />
-												</div>
-												<p>Порог-площадки</p>
-											</a>
-										</div>
-									</div>
-									<div class="col-lg-6 col-md-6 col-sm-4 col-xs-6">
-										<div class="banner-menu-item">
-											<a href="#">
-												<div class="banner-menu-item-image-container">
-													<img class="img-responsive" src="<?php echo $this->baseurl . '/images/menu/menu05.jpg' ?>" />
-												</div>
-												<p>Эксклюзив! 6мм алюминиевая зашита</p>
-											</a>
-										</div>
-									</div>
-									<div class="col-lg-3 col-md-3 col-sm-4 col-xs-6">
-										<div class="banner-menu-item">
-											<a href="#">
-												<div class="banner-menu-item-image-container">
-													<img class="img-responsive" src="<?php echo $this->baseurl . '/images/menu/menu07.jpg' ?>" />
-												</div>
-												<p>Аксессуары для квадрациклов</p>
-											</a>
-										</div>
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
+			<jdoc:include type="modules" name="position-3" style="none" />
 		<?php endif ?>
 		
-		<?php if ($this->countModules('position-4')) : ?>
+		<?php if ($this->countModules('position-3')) : ?>
 			<div class="info">
 				<div class="container">
 					<h3>Мы будем рады Вам помочь сделать Ваш автомобиль <strong>безопасным!</strong></h3>
@@ -231,7 +148,10 @@
 						<div class="col-sm-4 col">
 							<h4>Доставка и оплата</h4>
 							<p>
-								Алььынётё витюпэраторебуз квюо эи, лудуз пожтэа адвыржаряюм вим эю, вокябюч дэниквюы янвыняры ут квуй. Аэтырно аккузата ючю но, мэя йн ыёюз майыжтатйж ныглэгэнтур. Прё ад ажжюм мэнтётюм, квюод конвынёры эа шэа.
+								Мы осуществляем бесплатную доставку по г. Гродно до двери. Оплата наличными.
+							</p>
+							<p>
+								Платная доставка по Республике Беларусь, партнером является компания Globel24...
 							</p>
 							<p align="right" class="delivery-bottom">
 								<a href="">&rarr; узнать подробности</a>
@@ -243,8 +163,12 @@
 						<div class="col-sm-4 col">
 							<h4>Установка</h4>
 							<p>
-								Ыт еюж мэльёуз видырэр дёзсэнтёаш. Ут шэа квюод конжюль патриоквюы, нам ат конгуы путант зальутанде, ку партым оффэндйт зыд. Про ырант вёртюты молыжтйаы эю. Ед жюмо декат инзтруктеор пэр.
+								В нашем установочном центре Вас ждут следующие виды услуг:
 							</p>
+							<ul>
+								<li>предварительная мойка двигателя паром;</li>
+								<li>подбор и установка необходимого оборудования.</li>
+							</ul>
 							<p align="right">
 								<a href="">&rarr; узнать подробности</a>
 							</a>
@@ -254,7 +178,7 @@
 			</div>
 		<?php endif ?>
 		
-		<?php if ($this->countModules('position-5')) : ?>
+		<?php if ($this->countModules('position-3')) : ?>
 			<div class="about">
 				<div class="container">
 					<div class="about-img">
@@ -269,7 +193,7 @@
 					</p>
 					<p align="right">
 						<br />
-						<a href="">мы Вконтакте &rarr;</a>
+						<a href="http://vk.com/comcar_bel" target="_blank">мы Вконтакте &rarr;</a>
 					</a>
 				</div>
 			</div>
@@ -308,20 +232,19 @@
 			<div class="container">
 				<div class="row">
 					<div class="col-sm-4 footer-left">
-						<p><strong>ЧУП «Саня и Компания»</strong></p>
-						<p>
-							Республика Беларусь, 230000, Гродно<br />
-							ул. Будакашалева, 11
-						</p>
+						<p><strong>Шоу-рум и установочный центр:</strong></p>
+						<p>г. Гродно, ул. Дзержинского, 23</p>
 						<p>
 							+375 29 231 77 14<br />
 							+375 44 470 01 95
 						</p>
-						<p><a href="">info@comcar.by</a></p>
+						<p><a href="mailto:info@comcar.by">info@comcar.by</a></p>
 						<p>&copy; 2016, Все права защищены.</p>
 					</div>
 					<div class="col-sm-4 footer-middle">
-						<jdoc:include type="modules" name="position-6" style="none" />
+						<?php if ($this->countModules('position-8')) : ?>
+							<jdoc:include type="modules" name="position-8" style="none" />
+						<?php endif ?>
 					</div>
 					<div class="col-sm-4 footer-right">
 						<p>
@@ -329,14 +252,12 @@
 								<img class="logo-bw" src="<?php echo $this->baseurl . '/templates/' . $this->template . '/images/logo_bw.png'?>" />
 							</a>
 						</p>
-						<ul>							
-							<li><a href="">Доставка и оплата</a></li>
-							<li><a href="">Установка</a></li>
-							<li><a href="">О компании</a></li>
-						</ul>
+						<?php if ($this->countModules('position-9')) : ?>
+							<jdoc:include type="modules" name="position-9" style="none" />
+						<?php endif; ?>
 						<p>&nbsp;</p>
 						<p>
-							<a href="" class="social-links">
+							<a href="http://vk.com/comcar_bel" class="social-links" target="_blank">
 								&rarr; мы Вконтакте
 								<img src="<?php echo $this->baseurl . '/templates/' . $this->template . '/images/social_vk.png'?>" />
 							</a>

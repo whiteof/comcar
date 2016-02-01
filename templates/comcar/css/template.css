@@ -266,8 +266,18 @@ button.navbar-toggle {
 .footer ul {
   list-style: none;
 }
-.footer .footer-left {
-  
+.footer ul.nav li {
+  position: inherit;
+  display: inherit;
+}
+.footer ul.nav li a {
+  position: static;
+  display: inline;
+  padding: 0px;
+}
+.footer ul.nav li a:hover {
+    background: none;
+    text-decoration: underline;
 }
 .footer .footer-middle {
   text-align: center;
