@@ -13,14 +13,14 @@ JHtml::_('behavior.caption');
 ?>
 <div class="wcatalog">
 	<div class="w_menu">
-		<?php foreach($this->menu as $id => $val):?>
+		<?php /*foreach($this->menu as $id => $val):?>
 			<?php $menu = $this->getMenuItem($id); ?>
 			<?php if($menu->published == 1): ?>
 				<div id="<?php echo $id ?>" class="w_level" style="padding-left: <?php echo $menu->level ?>0px;">
 					<a href="<?php echo JRoute::_('index.php?option=com_wcatalog&view=category&id='.$id); ?>"><?php echo $menu->title ?></a>
 				</div>
 			<?php endif ?>
-		<?php endforeach ?>		
+		<?php endforeach*/ ?>		
 	</div>
 	<div class="w_content">
 			<div class="w_product_page">

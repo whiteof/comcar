@@ -13,6 +13,53 @@ JHtml::_('behavior.caption');
 
 ?>
 <div class="wcatalog">
+	<?php if($this->view['view'] == 'categories'): ?>
+		<div class="row">
+			<?php foreach($this->view['items'] as $item): ?>
+				<div class="col-lg-3 col-md-4 col-sm-6">
+					<a class="wcatalog-category" href="<?php echo JRoute::_('index.php?option=com_wcatalog&view=category&id='.$item->id); ?>">
+						<div class="make">
+							<div class="make-logo">
+								<img src="<?php echo JURI::base().'images/wcatalog/logos/'.strtolower(str_replace(' ', '', $item->title)).'.png' ?>" />
+							</div>
+							<div class="make-title">
+								<?php echo $item->title ?>
+							</div>
+						</div>
+					</a>
+				</div>
+			<?php endforeach ?>
+		</div>
+	<?php endif  ?>
+	
+	<?php if($this->view['view'] == 'products'): ?>
+		<div class="row">
+			<?php foreach($this->view['items'] as $item): ?>
+				<div class="col-lg-3 col-md-4 col-sm-6">
+					<a class="wcatalog-product" href="<?php echo JRoute::_('index.php?option=com_wcatalog&view=product&id='.$item->id); ?>">
+						<div class="product">
+							<div class="product-image">
+								<div class="bar">
+									<img class="img-responsive" src="<?php echo JURI::base().'images/wcatalog/products/'.$item->image ?>" />
+								</div>
+							</div>
+							<div class="product-info">
+								<p><?php echo ucfirst(trim($item->title)) ?></p>
+								<div class="price"><?php echo $item->price?> руб.</div>
+								<p class="price-desc"><?php echo ucfirst(trim($item->description)) ?></p>
+							</div>
+						</div>
+					</a>
+				</div>
+			<?php endforeach ?>
+		</div>
+	<?php endif  ?>
+	
+	
+	
+	
+	
+	<?php /*
 	<div class="w_menu">
 		<?php foreach($this->menu as $id => $val):?>
 			<?php $menu = $this->getMenuItem($id); ?>
@@ -23,6 +70,7 @@ JHtml::_('behavior.caption');
 			<?php endif ?>
 		<?php endforeach ?>		
 	</div>
+	
 	<div class="w_content">
 		<?php $cat_arr = array();?>
 		<?php $category = $this->getMenuItem($this->category_id);?>
@@ -53,7 +101,7 @@ JHtml::_('behavior.caption');
 					<div class="w_product">
 						<div class="w_product_img">
 							<a href="<?php echo JRoute::_('index.php?option=com_wcatalog&view=product&id='.$item->id); ?>">
-								<img src="<?php echo JURI::root().$item->image ?>" width="200px" height="200px" />
+								<img src="<?php echo JURI::base().'images/wcatalog/category_1/111.00802.1.jpg' ?>" width="200px" height="200px" />
 							</a>
 						</div>
 						<div class="w_product_title">
@@ -95,4 +143,5 @@ JHtml::_('behavior.caption');
 			<div class="pager_but"><a href="<?php echo JRoute::_('index.php?option=com_wcatalog&view=category&id='.$this->category_id.'&page='.$last_page); ?>">>></a></div>		
 		</div>
 	<?php endif ?>
+	*/?>
 </div>

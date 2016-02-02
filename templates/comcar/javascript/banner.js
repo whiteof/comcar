@@ -17,6 +17,7 @@ jQuery(function($){
                 if($(this).height() > max_height) max_height = $(this).height();
             });
             $('.banner-menu-item').height(max_height);
+            
         }
         resizeBanner();
         $(window).resize(function() {

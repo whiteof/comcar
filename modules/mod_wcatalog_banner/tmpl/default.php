@@ -19,7 +19,7 @@ defined('_JEXEC') or die;
 					<div class="row">
 							<div class="col-lg-3 col-md-3 col-sm-4 col-xs-6">
 								<div class="banner-menu-item">
-									<a href="#">
+									<a href="<?php echo JRoute::_('index.php?option=com_wcatalog&view=category&id='.$items[0]->id); ?>">
 										<div class="banner-menu-item-image-container">
 											<img class="img-responsive" src="<?php echo JURI::base() . '/images/menu/menu'.$items[0]->id.'.jpg' ?>" />
 										</div>
@@ -29,7 +29,7 @@ defined('_JEXEC') or die;
 							</div>
 							<div class="col-lg-3 col-md-3 col-sm-4 col-xs-6">
 								<div class="banner-menu-item">
-									<a href="#">
+									<a href="<?php echo JRoute::_('index.php?option=com_wcatalog&view=category&id='.$items[1]->id); ?>">
 										<div class="banner-menu-item-image-container">
 											<img class="img-responsive" src="<?php echo JURI::base() . '/images/menu/menu'.$items[1]->id.'.jpg' ?>" />
 										</div>
@@ -39,7 +39,7 @@ defined('_JEXEC') or die;
 							</div>
 							<div class="col-lg-3 col-md-3 col-sm-4 col-xs-6">
 								<div class="banner-menu-item">
-									<a href="#">
+									<a href="<?php echo JRoute::_('index.php?option=com_wcatalog&view=category&id='.$items[2]->id); ?>">
 										<div class="banner-menu-item-image-container">
 											<img class="img-responsive" src="<?php echo JURI::base() . '/images/menu/menu'.$items[2]->id.'.jpg' ?>" />
 										</div>
@@ -49,7 +49,7 @@ defined('_JEXEC') or die;
 							</div>
 							<div class="col-lg-3 col-md-3 col-sm-4 col-xs-6">
 								<div class="banner-menu-item">
-									<a href="#">
+									<a href="<?php echo JRoute::_('index.php?option=com_wcatalog&view=category&id='.$items[3]->id); ?>">
 										<div class="banner-menu-item-image-container">
 											<img class="img-responsive" src="<?php echo JURI::base() . '/images/menu/menu'.$items[3]->id.'.jpg' ?>" />
 										</div>
@@ -59,7 +59,7 @@ defined('_JEXEC') or die;
 							</div>
 							<div class="col-lg-3 col-md-3 col-sm-4 col-xs-6">
 								<div class="banner-menu-item">
-									<a href="#">
+									<a href="<?php echo JRoute::_('index.php?option=com_wcatalog&view=category&id='.$items[4]->id); ?>">
 										<div class="banner-menu-item-image-container">
 											<img class="img-responsive" src="<?php echo JURI::base() . '/images/menu/menu'.$items[4]->id.'.jpg' ?>" />
 										</div>
@@ -69,7 +69,7 @@ defined('_JEXEC') or die;
 							</div>
 							<div class="col-lg-6 col-md-6 col-sm-4 col-xs-6">
 								<div class="banner-menu-item">
-									<a href="#">
+									<a href="<?php echo JRoute::_('index.php?option=com_wcatalog&view=category&id='.$items[5]->id); ?>">
 										<div class="banner-menu-item-image-container">
 											<img class="img-responsive" src="<?php echo JURI::base() . '/images/menu/menu'.$items[5]->id.'.jpg' ?>" />
 										</div>
@@ -79,7 +79,7 @@ defined('_JEXEC') or die;
 							</div>
 							<div class="col-lg-3 col-md-3 col-sm-4 col-xs-6">
 								<div class="banner-menu-item">
-									<a href="#">
+									<a href="<?php echo JRoute::_('index.php?option=com_wcatalog&view=category&id='.$items[6]->id); ?>">
 										<div class="banner-menu-item-image-container">
 											<img class="img-responsive" src="<?php echo JURI::base() . '/images/menu/menu'.$items[6]->id.'.jpg' ?>" />
 										</div>

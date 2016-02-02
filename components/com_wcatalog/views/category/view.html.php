@@ -19,7 +19,7 @@ defined('_JEXEC') or die;
 class WcatalogViewCategory extends JViewLegacy
 {
 
-	protected $items;
+	protected $view;
 	protected $page;
 	protected $menu;
 	protected $category_id;
@@ -31,8 +31,8 @@ class WcatalogViewCategory extends JViewLegacy
 		$app		= JFactory::getApplication();
 		$user		= JFactory::getUser();
 		
-		$this->items		= $this->get('Items');
-		$this->menu		= $this->get('Menu');
+		$this->view		= $this->get('Items');
+		//$this->menu		= $this->get('Menu');
 		$this->page = $app->input->getInt('page');
 		if(!$this->page) $this->page = 1;
 		$this->category_id = $app->input->getInt('id');

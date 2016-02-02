@@ -11,6 +11,6 @@ defined('_JEXEC') or die;
 ?>
 <ul>
     <?php foreach($items as $item): ?>
-		<li><a href=""><?php echo $item->title ?></a></li>
+		<li><a href="<?php echo JRoute::_('index.php?option=com_wcatalog&view=category&id='.$item->id); ?>"><?php echo $item->title ?></a></li>
     <?php endforeach ?>
 </ul>

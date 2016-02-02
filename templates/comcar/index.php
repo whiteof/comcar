@@ -200,32 +200,66 @@
 		<?php endif ?>
 		
 		<?php if ($this->countModules('position-6')) : ?>
-			<div class="main-container">
-				<div class="container">
-					<div class="row row-offcanvas row-offcanvas-left">
-						<div class="col-xs-6 col-sm-3 sidebar-offcanvas" id="sidebar">
-							<div class="list-group">
-								<div class="sidebar-menu">
-									<jdoc:include type="modules" name="position-6" style="none" />
+			<?php 
+				$app = JFactory::getApplication();
+				$input = $app ->input;
+				$componentName = $input ->get('option');
+			?>
+			<?php if($componentName != 'com_wcatalog'): ?>
+				<div class="main-container">
+					<div class="container">
+						<div class="row row-offcanvas row-offcanvas-left">
+							<div class="col-xs-6 col-sm-3 sidebar-offcanvas" id="sidebar">
+								<div class="list-group">
+									<div class="sidebar-menu">
+										<jdoc:include type="modules" name="position-6" style="none" />
+									</div>
 								</div>
 							</div>
-						</div>
-						<div class="col-xs-12 col-sm-9">
-							<div class="main-content">
-								<p class="pull-left visible-xs">
-									<button type="button" class="btn btn-primary btn-xs" data-toggle="offcanvas">Toggle nav</button>
-								</p>						
-								<main id="content" role="main" class="<?php echo $span; ?>">
-									<!-- Begin Content -->
-									<jdoc:include type="message" />
-									<jdoc:include type="component" />
-									<!-- End Content -->
-								</main>
+							<div class="col-xs-12 col-sm-9">
+								<div class="main-content">
+									<p class="pull-left visible-xs">
+										<button type="button" class="btn btn-primary btn-xs" data-toggle="offcanvas">Toggle nav</button>
+									</p>						
+									<main id="content" role="main" class="<?php echo $span; ?>">
+										<!-- Begin Content -->
+										<jdoc:include type="message" />
+										<jdoc:include type="component" />
+										<!-- End Content -->
+									</main>
+								</div>
 							</div>
 						</div>
 					</div>
 				</div>
-			</div>
+			<?php else: ?>
+				<div class="main-container">
+					<div class="container">
+						<div class="row row-offcanvas row-offcanvas-left">
+							<div class="col-xs-6 col-sm-3 sidebar-offcanvas" id="sidebar">
+								<div class="list-group">
+									<div class="sidebar-menu">
+										<jdoc:include type="modules" name="position-6" style="none" />
+									</div>
+								</div>
+							</div>
+							<div class="col-xs-12 col-sm-9">
+								<div class="wcatalog-content">
+									<p class="pull-left visible-xs">
+										<button type="button" class="btn btn-primary btn-xs" data-toggle="offcanvas">Toggle nav</button>
+									</p>						
+									<main id="content" role="main" class="<?php echo $span; ?>">
+										<!-- Begin Content -->
+										<jdoc:include type="message" />
+										<jdoc:include type="component" />
+										<!-- End Content -->
+									</main>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			<?php endif ?>
 		<?php endif ?>
 		
 		<div class="footer">

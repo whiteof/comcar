@@ -32,28 +32,55 @@ class WcatalogModelCategory extends JModelList
 	 * @return  mixed  An array of objects on success, false on failure.
 	 */
 	public function getItems()
-	{
-		$db = $this->getDbo();
-		$query = $db->getQuery(true);
-		$query->select('MAX(level) as max_l')->from('#__wcatalog_categories');
-		$db->setQuery($query);
-		$rows = $db->loadObjectList();
-		$max_l = $rows[0]->max_l;
-		
+	{		
 		$app = JFactory::getApplication('site');
 		$id = $app->input->getInt('id');
-		if(!$id) $id = 1;
+		$return = array();
+		if($id) {
+			$db = $this->getDbo();
+			$query = $db->getQuery(true);
+			$query->select('*')
+				  ->from('#__wcatalog_categories')
+				  ->where('id='.$id);
+			$db->setQuery($query);
+			$category = $db->loadObject();
+			if(intval($category->parent_id) == 0) {
+				$query = $db->getQuery(true);
+				$query->select('*')
+					  ->from('#__wcatalog_categories')
+					  ->where('parent_id='.$category->id);
+				$db->setQuery($query);
+				$items = $db->loadObjectList();
+				$return = array(
+					'view' => 'categories',
+					'items' => $items
+				);
+			}else {
+				$query = $db->getQuery(true);
+				$query->select('*')
+					  ->from('#__wcatalog_products')
+					  ->where('category_id='.$category->id);
+				$db->setQuery($query);
+				$items = $db->loadObjectList();
+				$return = array(
+					'view' => 'products',
+					'items' => $items
+				);
+			}
+		}
+		return $return;
+		
 		/*
-SELECT p.* FROM jml_wcatalog_products as p,
+SELECT p.* FROM jmla_wcatalog_products as p,
     (SELECT c.* FROM
         (SELECT
             t1.id as id1,
             t2.id as id2,
             t3.id as id3
         FROM
-            jml_wcatalog_categories as t1 LEFT JOIN
-            jml_wcatalog_categories as t2 ON t1.id = t2.parent_id LEFT JOIN
-            jml_wcatalog_categories as t3 ON t2.id = t3.parent_id
+            jmla_wcatalog_categories as t1 LEFT JOIN
+            jmla_wcatalog_categories as t2 ON t1.id = t2.parent_id LEFT JOIN
+            jmla_wcatalog_categories as t3 ON t2.id = t3.parent_id
         WHERE t1.parent_id = 0
         ORDER BY t1.ordering, t2.ordering, t3.ordering ASC) as c
     WHERE
@@ -64,15 +91,15 @@ WHERE
     p.category_id = cs.id1 OR
     p.category_id = cs.id2 OR
     p.category_id = cs.id3
-		*/
+		
 	$query_string =
-'SELECT p.* FROM jml_wcatalog_products as p,
+'SELECT p.* FROM jmla_wcatalog_products as p,
     (SELECT c.* FROM
         (SELECT ';
 	for($i = 1; $i <= $max_l; $i++) $query_string .= 't'.$i.'.id as id'.$i.', ';
 	$query_string = substr($query_string, 0, -2).' ';
-	$query_string .='FROM jml_wcatalog_categories as t1 ';
-	for($i = 2; $i <= $max_l; $i++) $query_string .= 'LEFT JOIN jml_wcatalog_categories as t'.$i.' ON t'.($i-1).'.id = t'.$i.'.parent_id ';
+	$query_string .='FROM jmla_wcatalog_categories as t1 ';
+	for($i = 2; $i <= $max_l; $i++) $query_string .= 'LEFT JOIN jmla_wcatalog_categories as t'.$i.' ON t'.($i-1).'.id = t'.$i.'.parent_id ';
 	$query_string .= 'WHERE t1.parent_id = 0 ORDER BY ';
         for($i = 1; $i <= $max_l; $i++) $query_string .= 't'.$i.'.ordering, ';
 	$query_string = substr($query_string, 0, -2).' ASC) as c WHERE ';
@@ -87,8 +114,9 @@ WHERE
 
 		$db->setQuery($query_string);
 		$items = $db->loadObjectList();
-		
+
 		return $items;
+*/
 	}
 
 	public function getMenu()
