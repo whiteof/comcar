@@ -40,7 +40,7 @@ JHtml::_('behavior.caption');
 						<div class="product">
 							<div class="product-image">
 								<div class="bar">
-									<img class="img-responsive" src="<?php echo JURI::base().'images/wcatalog/products/'.$item->image ?>" />
+									<img class="img-responsive" src="<?php echo JURI::base().'images/wcatalog/products_'.$item->parent_id.'/'.$item->image ?>" />
 								</div>
 							</div>
 							<div class="product-info">

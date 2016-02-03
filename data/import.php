@@ -31,7 +31,7 @@
     print("Success!\n");
     
     // load categories
-    print("Loading categories - level 2...");
+    print("Loading menu01 data...");
     $file = fopen("menu01.csv","r");
     $categories = array();
     $cat_ordering = 1;
@@ -78,22 +78,220 @@
             }
         }
     }
-    
-        /*
-    while($row = fgets($file)){
-        echo $row;
-        if(!isset($categories[$row[0]])) {
-            $categories[$row[0]] = null;
-            mysqli_query($mysqli, "
-                INSERT INTO `jmla_wcatalog_categories` (`title`, `parent_id`, `ordering`, `level`, `published`, `created`, `created_by`, `modified`, `modified_by`) VALUES
-                ('".$row[0]."', 1, ".$cat_ordering.", 2, 1, '2016-02-01 02:13:43', 948, '0000-00-00 00:00:00', 0);
-            ");
-            $cat_ordering++;
-        }
-    }
-        */
     fclose($file);    
     print("Success!\n");
+    
+    
+    // load categories
+    print("Loading menu02 data...");
+    $file = fopen("menu02.csv","r");
+    $categories = array();
+    $cat_ordering = 1;
+    while (($data = fgetcsv($file, 0, ',','"')) !== FALSE) 
+    {
+        // insert category
+        $category_name = strtoupper(trim($data[0]));
+        $category = strtolower($category_name);
+        if(!isset($categories[$category])) {
+            $query = "
+                INSERT INTO `jmla_wcatalog_categories` (`title`, `parent_id`, `ordering`, `level`, `published`, `created`, `created_by`, `modified`, `modified_by`) VALUES
+                ('".$category_name."', 2, ".$cat_ordering.", 2, 1, '2016-02-01 02:13:43', 948, '0000-00-00 00:00:00', 0);
+            ";
+            $result = mysqli_query($mysqli, $query);
+            if(!$result) {
+                print($query."\n\n".mysqli_error($mysqli)."\n");
+                die;
+            }
+            $categories[$category] = $mysqli->insert_id;
+            $cat_ordering++;
+        }
+        
+        //insert product
+        if(!empty(trim($data[3]))) {
+            $title = $mysqli->real_escape_string(trim($data[3]));
+            $desc = $mysqli->real_escape_string(trim($data[1]));
+            
+            $query = "INSERT INTO `comcar`.`jmla_wcatalog_products` (`title`, `description`, `price`, `image`, `category_id`, `published`, `created`, `created_by`, `modified`, `modified_by`) VALUES
+            (
+                '".prepareString($data[3], $mysqli)."',
+                '".prepareString($data[1], $mysqli)."',
+                ".prepareInt($data[15]).",
+                '".prepareString($data[5], $mysqli)."',
+                ".$categories[$category].",
+                1,
+                '2016-02-01 00:00:00',
+                948,
+                '0000-00-00 00:00:00',
+                0
+            );";
+            $result = mysqli_query($mysqli, $query);
+            if(!$result) {
+                print($query."\n\n".mysqli_error($mysqli)."\n");
+                die;
+            }
+        }
+    }
+    fclose($file);    
+    print("Success!\n");
+    
+    
+    // load categories
+    print("Loading menu03 data...");
+    $file = fopen("menu03.csv","r");
+    $categories = array();
+    $cat_ordering = 1;
+    while (($data = fgetcsv($file, 0, ',','"')) !== FALSE) 
+    {
+        // insert category
+        $category_name = strtoupper(trim($data[0]));
+        $category = strtolower($category_name);
+        if(!isset($categories[$category])) {
+            $query = "
+                INSERT INTO `jmla_wcatalog_categories` (`title`, `parent_id`, `ordering`, `level`, `published`, `created`, `created_by`, `modified`, `modified_by`) VALUES
+                ('".$category_name."', 3, ".$cat_ordering.", 2, 1, '2016-02-01 02:13:43', 948, '0000-00-00 00:00:00', 0);
+            ";
+            $result = mysqli_query($mysqli, $query);
+            if(!$result) {
+                print($query."\n\n".mysqli_error($mysqli)."\n");
+                die;
+            }
+            $categories[$category] = $mysqli->insert_id;
+            $cat_ordering++;
+        }
+        
+        //insert product
+        if(!empty(trim($data[3]))) {
+            $title = $mysqli->real_escape_string(trim($data[3]));
+            $desc = $mysqli->real_escape_string(trim($data[1]));
+            
+            $query = "INSERT INTO `comcar`.`jmla_wcatalog_products` (`title`, `description`, `price`, `image`, `category_id`, `published`, `created`, `created_by`, `modified`, `modified_by`) VALUES
+            (
+                '".prepareString($data[2], $mysqli)."',
+                '".prepareString($data[0].' '.$data[1].' '.$data[3], $mysqli)."',
+                ".prepareInt($data[11]).",
+                '".prepareString($data[4], $mysqli).'.jpg'."',
+                ".$categories[$category].",
+                1,
+                '2016-02-01 00:00:00',
+                948,
+                '0000-00-00 00:00:00',
+                0
+            );";
+            $result = mysqli_query($mysqli, $query);
+            if(!$result) {
+                print($query."\n\n".mysqli_error($mysqli)."\n");
+                die;
+            }
+        }
+    }
+    fclose($file);    
+    print("Success!\n");    
+    
+    
+    // load categories
+    print("Loading menu04 data...");
+    $file = fopen("menu04.csv","r");
+    $categories = array();
+    $cat_ordering = 1;
+    while (($data = fgetcsv($file, 0, ',','"')) !== FALSE) 
+    {
+        // insert category
+        $category_name = strtoupper(trim($data[0]));
+        $category = strtolower($category_name);
+        if(!isset($categories[$category])) {
+            $query = "
+                INSERT INTO `jmla_wcatalog_categories` (`title`, `parent_id`, `ordering`, `level`, `published`, `created`, `created_by`, `modified`, `modified_by`) VALUES
+                ('".$category_name."', 4, ".$cat_ordering.", 2, 1, '2016-02-01 02:13:43', 948, '0000-00-00 00:00:00', 0);
+            ";
+            $result = mysqli_query($mysqli, $query);
+            if(!$result) {
+                print($query."\n\n".mysqli_error($mysqli)."\n");
+                die;
+            }
+            $categories[$category] = $mysqli->insert_id;
+            $cat_ordering++;
+        }
+        
+        //insert product
+        if(!empty(trim($data[3]))) {
+            $title = $mysqli->real_escape_string(trim($data[3]));
+            $desc = $mysqli->real_escape_string(trim($data[1]));
+            
+            $query = "INSERT INTO `comcar`.`jmla_wcatalog_products` (`title`, `description`, `price`, `image`, `category_id`, `published`, `created`, `created_by`, `modified`, `modified_by`) VALUES
+            (
+                '".prepareString($data[3], $mysqli)."',
+                '".prepareString($data[0].' '.$data[1].' '.$data[2], $mysqli)."',
+                ".prepareInt($data[6]).",
+                '".prepareString($data[5], $mysqli)."',
+                ".$categories[$category].",
+                1,
+                '2016-02-01 00:00:00',
+                948,
+                '0000-00-00 00:00:00',
+                0
+            );";
+            $result = mysqli_query($mysqli, $query);
+            if(!$result) {
+                print($query."\n\n".mysqli_error($mysqli)."\n");
+                die;
+            }
+        }
+    }
+    fclose($file);    
+    print("Success!\n");
+    
+    
+    // load categories
+    print("Loading menu05 data...");
+    $file = fopen("menu05.csv","r");
+    $categories = array();
+    $cat_ordering = 1;
+    while (($data = fgetcsv($file, 0, ',','"')) !== FALSE) 
+    {
+        // insert category
+        $category_name = strtoupper(trim($data[0]));
+        $category = strtolower($category_name);
+        if(!isset($categories[$category])) {
+            $query = "
+                INSERT INTO `jmla_wcatalog_categories` (`title`, `parent_id`, `ordering`, `level`, `published`, `created`, `created_by`, `modified`, `modified_by`) VALUES
+                ('".$category_name."', 5, ".$cat_ordering.", 2, 1, '2016-02-01 02:13:43', 948, '0000-00-00 00:00:00', 0);
+            ";
+            $result = mysqli_query($mysqli, $query);
+            if(!$result) {
+                print($query."\n\n".mysqli_error($mysqli)."\n");
+                die;
+            }
+            $categories[$category] = $mysqli->insert_id;
+            $cat_ordering++;
+        }
+        
+        //insert product
+        if(!empty(trim($data[3]))) {
+            $title = $mysqli->real_escape_string(trim($data[3]));
+            $desc = $mysqli->real_escape_string(trim($data[1]));
+            
+            $query = "INSERT INTO `comcar`.`jmla_wcatalog_products` (`title`, `description`, `price`, `image`, `category_id`, `published`, `created`, `created_by`, `modified`, `modified_by`) VALUES
+            (
+                '".prepareString('Порог-площадка + крепеж', $mysqli)."',
+                '".prepareString($data[0].' '.$data[1].' '.$data[2], $mysqli)."',
+                ".prepareInt($data[6]).",
+                '".prepareString($data[4].'.jpg', $mysqli)."',
+                ".$categories[$category].",
+                1,
+                '2016-02-01 00:00:00',
+                948,
+                '0000-00-00 00:00:00',
+                0
+            );";
+            $result = mysqli_query($mysqli, $query);
+            if(!$result) {
+                print($query."\n\n".mysqli_error($mysqli)."\n");
+                die;
+            }
+        }
+    }
+    fclose($file);    
+    print("Success!\n");    
     
     
     function prepareString($string, $mysqli) {

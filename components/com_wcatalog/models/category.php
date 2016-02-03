@@ -56,11 +56,14 @@ class WcatalogModelCategory extends JModelList
 					'items' => $items
 				);
 			}else {
-				$query = $db->getQuery(true);
-				$query->select('*')
-					  ->from('#__wcatalog_products')
-					  ->where('category_id='.$category->id);
-				$db->setQuery($query);
+				
+				$query_string = '
+					SELECT a.*, b.parent_id
+					FROM jmla_wcatalog_products as a
+					LEFT JOIN jmla_wcatalog_categories as b ON a.category_id = b.id
+					WHERE a.category_id='.$category->id.'
+				';
+				$db->setQuery($query_string);
 				$items = $db->loadObjectList();
 				$return = array(
 					'view' => 'products',
