@@ -39,6 +39,7 @@
 	$doc->addScript($this->baseurl . '/templates/' . $this->template . '/bootstrap-3.3.5/js/bootstrap.min.js');
 	$doc->addScript($this->baseurl . '/templates/' . $this->template . '/javascript/offcanvas.js');
 	$doc->addScript($this->baseurl . '/templates/' . $this->template . '/javascript/banner.js');
+	$doc->addScript($this->baseurl . '/templates/' . $this->template . '/javascript/modal.js');
 	$doc->addScript($this->baseurl . '/templates/' . $this->template . '/javascript/template.js');
 	
 	// Add Stylesheets

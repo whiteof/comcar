@@ -36,9 +36,14 @@ class WcatalogModelProduct extends JModelList
 		$app = JFactory::getApplication('site');
 		$id = $app->input->getInt('id');
 		$db = $this->getDbo();
-		$query = $db->getQuery(true);
-		$query->select('p.*')->from('#__wcatalog_products as p')->where('p.id = '.$id);
-		$db->setQuery($query);
+		$query_string = '
+			SELECT a.*, b.parent_id
+			FROM jmla_wcatalog_products as a
+			LEFT JOIN jmla_wcatalog_categories as b ON a.category_id = b.id
+			WHERE a.id='.$id.'
+		';
+		$db->setQuery($query_string);
+		$items = $db->loadObjectList();		
 		return $db->loadObject();
         }
 	

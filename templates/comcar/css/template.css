@@ -5,7 +5,6 @@ body {
 .header {
     position: relative;
     box-shadow: 0px 1px 3px #ccc;
-    z-index: 100000;
 }
         
 .navbar-default {
@@ -304,6 +303,8 @@ button.navbar-toggle {
 .wcatalog-content .wcatalog-product .product-image .bar {
     margin: auto;
     max-width:200px;
+    max-height: 200px;
+    overflow: hidden;
 }
 .wcatalog-content .wcatalog-product .product-info {
     padding: 5px;
@@ -326,6 +327,70 @@ button.navbar-toggle {
     float: right;
     margin: 0px 0px 5px 5px;
 }
+
+.wcatalog-content .product-details {
+    background: #fff;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    margin-bottom: 20px;
+    font-weight: 300;
+    padding: 20px;
+    font-size: 15px;
+}
+.wcatalog-content .product-details .product-details-image {
+    background: #eee;
+    border-radius: 2px;
+    padding: 4px;
+}
+.wcatalog-content .product-details .product-details-title {
+    font-size: 24px;
+    text-transform: uppercase;
+    margin-bottom: 15px;
+}
+.wcatalog-content .product-details .product-details-price {
+    font-size: 20px;
+    margin-bottom: 15px;
+    color: #78c042;
+}
+.wcatalog-content .product-details .modal .product-details-price {
+    margin-top: 20px;
+    font-size: 16px;
+}
+.wcatalog-content .product-details .product-details-description {
+    margin-top: 20px;
+    padding: 10px 0px 0px 0px;
+    border-top: 1px dotted #ddd;
+    color: #777;
+}
+.wcatalog-content .product-details .product-details-description h4 {
+    font-size: 20px;
+    font-weight: 400;
+    margin-top: 0px;
+    color: #555;
+}
+.wcatalog-content .product-details .product-details-model-image {
+    background: #eee;
+    border-radius: 2px;
+    padding: 4px;
+}
+.wcatalog-content .product-details .product-details-model-image .bar img {
+    margin: auto;
+}
+.wcatalog-content .product-details .modal .buy-form-title {
+    text-transform: uppercase;
+    font-weight: 400;
+}
+.wcatalog-content .product-details .modal .submit-result {
+    display: none;
+}
+.wcatalog-content .product-details .modal .submit-loading {
+    display: none;
+}
+.wcatalog-content .product-details .modal .submit-message {
+    border-radius: 4px;
+    padding: 15px;
+}
+
 
 
 .footer {

@@ -292,6 +292,117 @@
     }
     fclose($file);    
     print("Success!\n");    
+
+    
+    // load categories
+    print("Loading menu06 data...");
+    $dir = '/var/www/html/66.175.212.71/comcar/images/wcatalog/products_6/';
+    if (is_dir($dir)){
+        if ($dh = opendir($dir)){
+            $categories = array();
+            $cat_ordering = 1;
+            while (($file = readdir($dh)) !== false){
+                
+                if($file != '.' && $file != '..') {
+                    // insert category
+                    $category_name_array = explode(' ', trim($file));
+                    $category_name = strtoupper($category_name_array[0]);
+                    $category = strtolower($category_name);
+                    if(!isset($categories[$category])) {
+                        $query = "
+                            INSERT INTO `jmla_wcatalog_categories` (`title`, `parent_id`, `ordering`, `level`, `published`, `created`, `created_by`, `modified`, `modified_by`) VALUES
+                            ('".$category_name."', 6, ".$cat_ordering.", 2, 1, '2016-02-01 02:13:43', 948, '0000-00-00 00:00:00', 0);
+                        ";
+                        $result = mysqli_query($mysqli, $query);
+                        if(!$result) {
+                            print($query."\n\n".mysqli_error($mysqli)."\n");
+                            die;
+                        }
+                        $categories[$category] = $mysqli->insert_id;
+                        $cat_ordering++;
+                    }
+                    
+                    //insert product
+                    $title = '6мм алюминиевая зашита';
+                    $query = "INSERT INTO `comcar`.`jmla_wcatalog_products` (`title`, `description`, `price`, `image`, `category_id`, `published`, `created`, `created_by`, `modified`, `modified_by`) VALUES
+                    (
+                        '".$title."',
+                        '".prepareString($file, $mysqli)."',
+                        NULL,
+                        '".$file."/JPEG/1.jpg',
+                        ".$categories[$category].",
+                        1,
+                        '2016-02-01 00:00:00',
+                        948,
+                        '0000-00-00 00:00:00',
+                        0
+                    );";
+                    $result = mysqli_query($mysqli, $query);
+                    if(!$result) {
+                        print($query."\n\n".mysqli_error($mysqli)."\n");
+                        die;
+                    }
+
+                }
+            }
+            closedir($dh);
+        }
+    }
+    print("Success!\n");    
+
+    
+    // load categories
+    print("Loading menu07 data...");
+    $file = fopen("menu07.csv","r");
+    $categories = array();
+    $cat_ordering = 1;
+    while (($data = fgetcsv($file, 0, ',','"')) !== FALSE) 
+    {
+        // insert category
+        if(empty(trim($data[1]))){
+            $category_name = strtoupper(trim($data[0]));
+            $category = strtolower($category_name);
+            if(!isset($categories[$category])) {
+                $query = "
+                    INSERT INTO `jmla_wcatalog_categories` (`title`, `parent_id`, `ordering`, `level`, `published`, `created`, `created_by`, `modified`, `modified_by`) VALUES
+                    ('".$category_name."', 7, ".$cat_ordering.", 2, 1, '2016-02-01 02:13:43', 948, '0000-00-00 00:00:00', 0);
+                ";
+                $result = mysqli_query($mysqli, $query);
+                if(!$result) {
+                    print($query."\n\n".mysqli_error($mysqli)."\n");
+                    die;
+                }
+                $categories[$category] = $mysqli->insert_id;
+                $cat_ordering++;
+            }
+        }else {
+            //insert product
+            $article_arr = explode('.', $data[3]);
+            if(!empty(trim($data[2])) || $article_arr[0] == '444') {
+                $query = "INSERT INTO `comcar`.`jmla_wcatalog_products` (`title`, `description`, `price`, `image`, `category_id`, `published`, `created`, `created_by`, `modified`, `modified_by`) VALUES
+                (
+                    '".prepareString($data[0], $mysqli)."',
+                    '".prepareString($data[1].' '.$data[2], $mysqli)."',
+                    ".prepareInt($data[7]).",
+                    '".prepareString($data[3].'.jpg', $mysqli)."',
+                    ".$categories[$category].",
+                    1,
+                    '2016-02-01 00:00:00',
+                    948,
+                    '0000-00-00 00:00:00',
+                    0
+                );";
+                $result = mysqli_query($mysqli, $query);
+                if(!$result) {
+                    print($query."\n\n".mysqli_error($mysqli)."\n");
+                    die;
+                }
+            }
+        }
+        
+    }
+    fclose($file);    
+    print("Success!\n");
     
     
     function prepareString($string, $mysqli) {
