@@ -261,6 +261,9 @@ button.navbar-toggle {
 .sidebar-menu ul li::before {
     content: "\0BB \020";
 }
+.sidebar-menu ul li a {
+    font-weight: 300;
+}
 
 .wcatalog .breadcrumb {
     background: #fff;
