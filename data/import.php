@@ -56,12 +56,21 @@
         
         //insert product
         if(!empty(trim($data[3]))) {
-            $title = $mysqli->real_escape_string(trim($data[3]));
-            $desc = $mysqli->real_escape_string(trim($data[1]));
-            $query = "INSERT INTO `comcar`.`jmla_wcatalog_products` (`title`, `description`, `price`, `image`, `category_id`, `published`, `created`, `created_by`, `modified`, `modified_by`) VALUES
+            $description = '';
+            $description .= '<p><strong>Толщина металла:</strong> '.$data[6].'</p>';
+            $description .= '<p><strong>Наличие крепежа:</strong> '.$data[7].'</p>';
+            $description .= '<p><strong>Время установки:</strong> '.$data[8].'</p>';
+            $description .= '<p><strong>Размер:</strong> '.$data[9].'мм Х '.$data[10].'мм Х '.$data[11].'мм</p>';
+            $description .= '<p><strong>Масса (кг):</strong> '.$data[12].'</p>';
+            
+            $query = "INSERT INTO `comcar`.`jmla_wcatalog_products` (`title`, `make`, `model`, `year`, `article`, `description`, `price`, `image`, `category_id`, `published`, `created`, `created_by`, `modified`, `modified_by`) VALUES
             (
                 '".prepareString($data[3], $mysqli)."',
+                '".fupper($category_name)."',
                 '".prepareString($data[1], $mysqli)."',
+                '".prepareString($data[2], $mysqli)."',
+                '".prepareString($data[4], $mysqli)."',
+                '".prepareString($description, $mysqli)."',
                 ".prepareInt($data[13]).",
                 '".prepareString($data[5], $mysqli)."',
                 ".$categories[$category].",
@@ -404,6 +413,11 @@
     fclose($file);    
     print("Success!\n");
     
+    function fupper($string) {
+        $string = strtolower($string);
+        $string = strtoupper(substr($string, 0, 1)).substr($string, 1);
+        return $string;
+    }
     
     function prepareString($string, $mysqli) {
         return $mysqli->real_escape_string(trim($string));

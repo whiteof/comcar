@@ -45,11 +45,13 @@ class WcatalogModelCategory extends JModelList
 			$db->setQuery($query);
 			$category = $db->loadObject();
 			if(intval($category->parent_id) == 0) {
-				$query = $db->getQuery(true);
-				$query->select('*')
-					  ->from('#__wcatalog_categories')
-					  ->where('parent_id='.$category->id);
-				$db->setQuery($query);
+				$query_string = '
+					SELECT a.*, b.title as category
+					FROM jmla_wcatalog_categories as a
+					LEFT JOIN jmla_wcatalog_categories as b ON a.parent_id = b.id
+					WHERE a.parent_id='.$category->id.'
+				';
+				$db->setQuery($query_string);
 				$items = $db->loadObjectList();
 				$return = array(
 					'view' => 'categories',
@@ -58,9 +60,10 @@ class WcatalogModelCategory extends JModelList
 			}else {
 				
 				$query_string = '
-					SELECT a.*, b.parent_id
+					SELECT a.*, b.parent_id, b.title as subcategory, c.title as category
 					FROM jmla_wcatalog_products as a
 					LEFT JOIN jmla_wcatalog_categories as b ON a.category_id = b.id
+					LEFT JOIN jmla_wcatalog_categories as c ON b.parent_id = c.id
 					WHERE a.category_id='.$category->id.'
 				';
 				$db->setQuery($query_string);

@@ -37,9 +37,10 @@ class WcatalogModelProduct extends JModelList
 		$id = $app->input->getInt('id');
 		$db = $this->getDbo();
 		$query_string = '
-			SELECT a.*, b.parent_id
+			SELECT a.*, b.parent_id, c.title as category, b.title as subcategory
 			FROM jmla_wcatalog_products as a
 			LEFT JOIN jmla_wcatalog_categories as b ON a.category_id = b.id
+			LEFT JOIN jmla_wcatalog_categories as c ON b.parent_id = c.id
 			WHERE a.id='.$id.'
 		';
 		$db->setQuery($query_string);

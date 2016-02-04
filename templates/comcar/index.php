@@ -155,7 +155,7 @@
 								Платная доставка по Республике Беларусь, партнером является компания Globel24...
 							</p>
 							<p align="right" class="delivery-bottom">
-								<a href="">&rarr; узнать подробности</a>
+								<a href="<?php echo JRoute::_('index.php/shipping'); ?>">&rarr; узнать подробности</a>
 							</a>
 						</div>
 						<div class="col-sm-2 col">
@@ -171,7 +171,7 @@
 								<li>подбор и установка необходимого оборудования.</li>
 							</ul>
 							<p align="right">
-								<a href="">&rarr; узнать подробности</a>
+								<a href="<?php echo JRoute::_('index.php/assembling'); ?>">&rarr; узнать подробности</a>
 							</a>
 						</div>
 					</div>

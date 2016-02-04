@@ -20,7 +20,11 @@
     mysqli_query($mysqli, "
         CREATE TABLE jmla_wcatalog_products (
             id integer(10) UNSIGNED NOT NULL auto_increment,
-            title  varchar(255) NOT NULL DEFAULT '',
+            title varchar(255) NOT NULL DEFAULT '',
+            make varchar(255) NULL DEFAULT '',
+            model varchar(255) NULL DEFAULT '',
+            year varchar(50) NULL DEFAULT '',
+            article varchar(50) NULL DEFAULT '',
             description text NULL DEFAULT '',
             price float NULL,
             image varchar(255) NULL DEFAULT '',
