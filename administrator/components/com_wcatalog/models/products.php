@@ -32,6 +32,10 @@ class WcatalogModelProducts extends JModelList
 			$config['filter_fields'] = array(
 				'id', 'a.id',
 				'title', 'a.title',
+				'make', 'a.make',
+				'model', 'a.model',
+				'year', 'a.year',
+				'article', 'a.article',
 				'description', 'a.description',
 				'price', 'a.price',
 				'category_id', 'a.category_id',
@@ -145,7 +149,7 @@ class WcatalogModelProducts extends JModelList
 		$query->select(
 			$this->getState(
 				'list.select',
-				'a.id, a.title, a.description, a.price, a.category_id, a.published, a.created'
+				'a.id, a.title, a.make, a.model, a.year, a.article, a.description, a.price, a.category_id, a.published, a.created'
 			)
 		);
 		$query->from($db->quoteName('#__wcatalog_products') . ' AS a');

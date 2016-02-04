@@ -24,5 +24,14 @@ jQuery(function($){
             resizeItems();
         }).trigger("resize");
         
+        $('.visible-xs button').click(function(){
+            if ($(this).hasClass('expanded')) {
+                $(this).removeClass('expanded');
+                $(this).html('&rarr; Каталог');
+            }else {
+                $(this).addClass('expanded');
+                $(this).html('&larr; Каталог');
+            }
+        });
     });
 });

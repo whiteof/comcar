@@ -45,6 +45,22 @@ $assoc = isset($app->item_associations) ? $app->item_associations : 0;
 				<div class="controls"><?php echo $this->form->getInput('title'); ?></div>
 			</div>
 			<div class="control-group">
+				<div class="control-label"><?php echo $this->form->getLabel('make'); ?></div>
+				<div class="controls"><?php echo $this->form->getInput('make'); ?></div>
+			</div>
+			<div class="control-group">
+				<div class="control-label"><?php echo $this->form->getLabel('model'); ?></div>
+				<div class="controls"><?php echo $this->form->getInput('model'); ?></div>
+			</div>
+			<div class="control-group">
+				<div class="control-label"><?php echo $this->form->getLabel('year'); ?></div>
+				<div class="controls"><?php echo $this->form->getInput('year'); ?></div>
+			</div>
+			<div class="control-group">
+				<div class="control-label"><?php echo $this->form->getLabel('article'); ?></div>
+				<div class="controls"><?php echo $this->form->getInput('article'); ?></div>
+			</div>
+			<div class="control-group">
 				<div class="control-label"><?php echo $this->form->getLabel('description'); ?></div>
 				<div class="controls"><?php echo $this->form->getInput('description'); ?></div>
 			</div>
@@ -54,7 +70,7 @@ $assoc = isset($app->item_associations) ? $app->item_associations : 0;
 					<select id="jform_category_id" required="required" name="jform[category_id]" style="width: 500px;">
 						<option></option>
 						<?php foreach($this->categories as  $item): ?>
-							<option value="<?php echo $item->id ?>" <?php if($this->item->parent_id == $item->id) echo 'selected="selected"';?> style="padding-left: <?php echo $item->level*10?>px;">
+							<option value="<?php echo $item->id ?>" <?php if($this->item->category_id == $item->id) echo 'selected="selected"';?> style="padding-left: <?php echo $item->level*10?>px;">
 								<?php echo $item->title ?>
 							</option>
 						<?php endforeach ?>						

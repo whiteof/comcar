@@ -133,17 +133,23 @@ JHtml::_('behavior.caption');
 					<div class="product-details-title">
 						<?php echo $this->item->title ?>
 					</div>
-					<div class="product-details-price">
-						 Цена: <?php echo $this->item->price ?> руб.
-					</div>
+					<?php if(!empty($this->item->price)): ?>
+						<div class="product-details-price">
+							 Цена: <?php echo $this->item->price ?> руб.
+						</div>
+					<?php else: ?>
+						<div class="product-details-price">
+							 Цена по запросу
+						</div>
+					<?php endif  ?>
 					<div class="product-details-shortdesc">
 						 <p>
 							<strong><?php echo $this->item->make ?></strong><br />
 							<?php echo $this->item->model ?>
 						</p>
-						<p>
-							Год выпуска: <?php echo $this->item->year ?>
-						</p>
+						<?php if(!empty($this->item->year)): ?>
+							<p>Год выпуска: <?php echo $this->item->year ?></p>
+						<?php endif ?>
 					</div>
 					<p>&nbsp;</p>
 					<div class="product-details-buy">
@@ -159,7 +165,7 @@ JHtml::_('behavior.caption');
 								</div>
 								<div class="modal-body">
 									<div class="row">
-										<div class="col-sm-5">
+										<div class="col-sm-5 modal-image-bar">
 											<div class="product-details-model-image">
 												<div class="bar">
 													<img class="img-responsive" src="<?php echo $img_url ?>" />
@@ -171,7 +177,7 @@ JHtml::_('behavior.caption');
 										</div>
 										<div class="col-sm-7">
 											<div class="submit-initial">
-												<form>
+												<form class="wcatalog-order-form" action="post" data-url="<?php echo JURI::base().'ajax/send_email.php'; ?>">
 													<div class="form-group">
 														<label for="full_name">Введите ваше имя</label>
 														<input type="text" class="form-control" placeholder="Ф.И.О." name="full_name" id="full_name" />
@@ -214,10 +220,12 @@ JHtml::_('behavior.caption');
 				</div>
 			</div>
 		</div>
-		<div class="product-details-description">
-			<h4>Описание товара</h4>
-			<?php echo $this->item->description ?>
-		</div>
+		<?php if(!empty(trim($this->item->description))): ?>
+			<div class="product-details-description">
+				<h4>Описание товара</h4>
+				<?php echo $this->item->description ?>
+			</div>
+		<?php endif ?>
 	</div>
 	<div style="clear: both;"></div>
 </div>

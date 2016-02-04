@@ -101,16 +101,22 @@ $assoc		= isset($app->item_associations) ? $app->item_associations : 0;
 						<?php echo JHtml::_('grid.sort', 'JGLOBAL_TITLE', 'a.title', $listDirn, $listOrder); ?>
 					</th>
 					<th class="nowrap hidden-phone">
-						<?php echo JHtml::_('grid.sort', 'COM_WCATALOG_DESCRIPTION', 'a.description', $listDirn, $listOrder); ?>
+						<?php echo JHtml::_('grid.sort', 'COM_WCATALOG_MAKE', 'a.make', $listDirn, $listOrder); ?>
+					</th>
+					<th class="nowrap hidden-phone">
+						<?php echo JHtml::_('grid.sort', 'COM_WCATALOG_MODEL', 'a.model', $listDirn, $listOrder); ?>
+					</th>
+					<th class="nowrap hidden-phone">
+						<?php echo JHtml::_('grid.sort', 'COM_WCATALOG_YEAR', 'a.year', $listDirn, $listOrder); ?>
+					</th>
+					<th class="nowrap hidden-phone">
+						<?php echo JHtml::_('grid.sort', 'COM_WCATALOG_ARTICLE', 'a.article', $listDirn, $listOrder); ?>
 					</th>
 					<th class="nowrap hidden-phone">
 						<?php echo JHtml::_('grid.sort', 'COM_WCATALOG_PRICE', 'a.price', $listDirn, $listOrder); ?>
 					</th>
 					<th class="nowrap hidden-phone">
 						<?php echo JHtml::_('grid.sort', 'COM_WCATALOG_CATEGORY', 'b.title', $listDirn, $listOrder); ?>
-					</th>						
-					<th class="nowrap hidden-phone">
-						<?php echo JHtml::_('grid.sort', 'COM_WCATALOG_CREATED', 'a.created', $listDirn, $listOrder); ?>
 					</th>						
 				</tr>
 			</thead>
@@ -144,17 +150,23 @@ $assoc		= isset($app->item_associations) ? $app->item_associations : 0;
 						</div>
 					</td>
 					<td class="small hidden-phone">
-						<?php echo $this->escape($item->description); ?>
-					</td>
+						<?php echo $this->escape($item->make); ?>
+					</td>					
+					<td class="small hidden-phone">
+						<?php echo $this->escape($item->model); ?>
+					</td>					
+					<td class="small hidden-phone">
+						<?php echo $this->escape($item->year); ?>
+					</td>					
+					<td class="small hidden-phone">
+						<?php echo $this->escape($item->article); ?>
+					</td>					
 					<td class="small hidden-phone">
 						<?php echo $this->escape($item->price); ?>
 					</td>					
 					<td class="small hidden-phone">
 						<?php echo $this->escape($item->category_title); ?>
 					</td>
-					<td class="small hidden-phone">
-						<?php echo $this->escape($item->created); ?>
-					</td>					
 				</tr>
 				<?php endforeach; ?>
 			</tbody>

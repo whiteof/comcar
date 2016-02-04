@@ -28,9 +28,11 @@ body {
 ul.navbar-nav {
   margin-top: 15px;
 }
-ul.navbar-nav li.active a {
-  background: none !important;
-  border-bottom: 2px solid #ccc;
+@media (min-width: 768px) {
+    ul.navbar-nav li.active a {
+      background: none !important;
+      border-bottom: 2px solid #ccc;
+    }
 }
 
 button.navbar-toggle {
@@ -233,6 +235,18 @@ button.navbar-toggle {
     border-radius: 4px;
     padding: 20px;
 }
+.visible-xs {
+    margin-top: 0px;
+    margin-bottom: 20px;
+    margin-left: -20px;
+}
+.visible-xs button {
+    padding: 7px;
+}
+.visible-xs.wcatalog-sidebar-button {
+    margin-top: 19px;
+    margin-bottom: 0px;
+}
 .main-content h2 {
     font-size: 28px;
     font-weight: 300;
@@ -263,6 +277,14 @@ button.navbar-toggle {
 }
 .sidebar-menu ul li a {
     font-weight: 300;
+}
+.sidebar-menu .side-bar-title {
+    font-size: 14px;
+    color: #777;
+    text-transform: uppercase;
+    border-bottom: 2px dotted #ddd;
+    margin-bottom: 10px;
+    padding-bottom: 5px;
 }
 
 .wcatalog .breadcrumb {
@@ -366,6 +388,15 @@ button.navbar-toggle {
     border-radius: 2px;
     padding: 4px;
 }
+@media (max-width: 1199px) {
+    .wcatalog-content .product-details .product-details-image .bar {
+        max-height: 250px;
+    }
+    .wcatalog-content .product-details .product-details-image .bar img {
+        margin: auto;
+        max-height: 250px;
+    }
+}
 .wcatalog-content .product-details .product-details-title {
     font-size: 24px;
     text-transform: uppercase;
@@ -401,8 +432,14 @@ button.navbar-toggle {
     border-radius: 2px;
     padding: 4px;
 }
-.wcatalog-content .product-details .product-details-model-image .bar img {
-    margin: auto;
+@media (max-width: 1199px) {
+    .wcatalog-content .product-details .product-details-model-image .bar {
+        max-height: 250px;
+    }
+    .wcatalog-content .product-details .product-details-model-image .bar img {
+        margin: auto;
+        max-height: 250px;
+    }
 }
 .wcatalog-content .product-details .modal .buy-form-title {
     text-transform: uppercase;
@@ -418,7 +455,9 @@ button.navbar-toggle {
     border-radius: 4px;
     padding: 15px;
 }
-
+article.item-page iframe {
+    width: 100%;
+}
 
 
 .footer {
@@ -471,6 +510,12 @@ button.navbar-toggle {
 .footer .footer-right .social-links img {
   width: 25px;
   opacity: 0.5;
+}
+
+@media (max-width: 767px) {
+    .modal-image-bar {
+        display: none;
+    }
 }
 
 @media (max-width: 767px) {

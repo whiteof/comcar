@@ -117,13 +117,23 @@
         
         //insert product
         if(!empty(trim($data[3]))) {
-            $title = $mysqli->real_escape_string(trim($data[3]));
-            $desc = $mysqli->real_escape_string(trim($data[1]));
+            $description = '';
+            $description .= '<p><strong>Глубокий штамп:</strong> '.$data[6].'</p>';
+            $description .= '<p><strong>Толщина металла:</strong> '.$data[7].'</p>';
+            $description .= '<p><strong>Наличие крепежа:</strong> '.$data[8].'</p>';
+            $description .= '<p><strong>Время установки:</strong> '.$data[9].'</p>';
+            $description .= '<p><strong>Замена масла и фильтра без снятия защиты:</strong> '.$data[10].'</p>';
+            $description .= '<p><strong>Размер:</strong> '.$data[11].'мм Х '.$data[12].'мм Х '.$data[13].'мм</p>';
+            $description .= '<p><strong>Масса (кг):</strong> '.$data[14].'</p>';
             
-            $query = "INSERT INTO `comcar`.`jmla_wcatalog_products` (`title`, `description`, `price`, `image`, `category_id`, `published`, `created`, `created_by`, `modified`, `modified_by`) VALUES
+            $query = "INSERT INTO `comcar`.`jmla_wcatalog_products` (`title`, `make`, `model`, `year`, `article`, `description`, `price`, `image`, `category_id`, `published`, `created`, `created_by`, `modified`, `modified_by`) VALUES
             (
                 '".prepareString($data[3], $mysqli)."',
+                '".prepareString($category_name, $mysqli)."',
                 '".prepareString($data[1], $mysqli)."',
+                '".prepareString($data[2], $mysqli)."',
+                '".prepareString($data[4], $mysqli)."',
+                '".prepareString($description, $mysqli)."',
                 ".prepareInt($data[15]).",
                 '".prepareString($data[5], $mysqli)."',
                 ".$categories[$category].",
@@ -170,13 +180,18 @@
         
         //insert product
         if(!empty(trim($data[3]))) {
-            $title = $mysqli->real_escape_string(trim($data[3]));
-            $desc = $mysqli->real_escape_string(trim($data[1]));
-            
-            $query = "INSERT INTO `comcar`.`jmla_wcatalog_products` (`title`, `description`, `price`, `image`, `category_id`, `published`, `created`, `created_by`, `modified`, `modified_by`) VALUES
+            $description = '';
+            $description .= '<p><strong>Время установки:</strong> '.$data[6].'</p>';
+            $description .= '<p><strong>Размер:</strong> '.$data[7].'мм Х '.$data[8].'мм Х '.$data[9].'мм</p>';
+            $description .= '<p><strong>Масса (кг):</strong> '.$data[10].'</p>';
+            $query = "INSERT INTO `comcar`.`jmla_wcatalog_products` (`title`, `make`, `model`, `year`, `article`, `description`, `price`, `image`, `category_id`, `published`, `created`, `created_by`, `modified`, `modified_by`) VALUES
             (
                 '".prepareString($data[2], $mysqli)."',
-                '".prepareString($data[0].' '.$data[1].' '.$data[3], $mysqli)."',
+                '".prepareString($category_name, $mysqli)."',
+                '".prepareString($data[1], $mysqli)."',
+                '".prepareString($data[3], $mysqli)."',
+                '".prepareString($data[4], $mysqli)."',
+                '".prepareString($description, $mysqli)."',
                 ".prepareInt($data[11]).",
                 '".prepareString($data[4], $mysqli).'.jpg'."',
                 ".$categories[$category].",
@@ -223,13 +238,14 @@
         
         //insert product
         if(!empty(trim($data[3]))) {
-            $title = $mysqli->real_escape_string(trim($data[3]));
-            $desc = $mysqli->real_escape_string(trim($data[1]));
-            
-            $query = "INSERT INTO `comcar`.`jmla_wcatalog_products` (`title`, `description`, `price`, `image`, `category_id`, `published`, `created`, `created_by`, `modified`, `modified_by`) VALUES
+            $query = "INSERT INTO `comcar`.`jmla_wcatalog_products` (`title`, `make`, `model`, `year`, `article`, `description`, `price`, `image`, `category_id`, `published`, `created`, `created_by`, `modified`, `modified_by`) VALUES
             (
                 '".prepareString($data[3], $mysqli)."',
-                '".prepareString($data[0].' '.$data[1].' '.$data[2], $mysqli)."',
+                '".prepareString($category_name, $mysqli)."',
+                '".prepareString($data[1], $mysqli)."',
+                '".prepareString($data[2], $mysqli)."',
+                '".prepareString($data[4], $mysqli)."',
+                '',
                 ".prepareInt($data[6]).",
                 '".prepareString($data[5], $mysqli)."',
                 ".$categories[$category].",
@@ -276,13 +292,15 @@
         
         //insert product
         if(!empty(trim($data[3]))) {
-            $title = $mysqli->real_escape_string(trim($data[3]));
-            $desc = $mysqli->real_escape_string(trim($data[1]));
-            
-            $query = "INSERT INTO `comcar`.`jmla_wcatalog_products` (`title`, `description`, `price`, `image`, `category_id`, `published`, `created`, `created_by`, `modified`, `modified_by`) VALUES
+            $description = '';
+            $query = "INSERT INTO `comcar`.`jmla_wcatalog_products` (`title`, `make`, `model`, `year`, `article`, `description`, `price`, `image`, `category_id`, `published`, `created`, `created_by`, `modified`, `modified_by`) VALUES
             (
                 '".prepareString('Порог-площадка + крепеж', $mysqli)."',
-                '".prepareString($data[0].' '.$data[1].' '.$data[2], $mysqli)."',
+                '".prepareString($category_name, $mysqli)."',
+                '".prepareString($data[1], $mysqli)."',
+                '".prepareString($data[2], $mysqli)."',
+                '".prepareString($data[4], $mysqli)."',
+                '".prepareString($description, $mysqli)."',
                 ".prepareInt($data[6]).",
                 '".prepareString($data[4].'.jpg', $mysqli)."',
                 ".$categories[$category].",
@@ -333,10 +351,16 @@
                     
                     //insert product
                     $title = '6мм алюминиевая зашита';
-                    $query = "INSERT INTO `comcar`.`jmla_wcatalog_products` (`title`, `description`, `price`, `image`, `category_id`, `published`, `created`, `created_by`, `modified`, `modified_by`) VALUES
+                    $make_name = fupper($category_name);
+                    $model_name = trim(str_replace($make_name, '', $file));
+                    $query = "INSERT INTO `comcar`.`jmla_wcatalog_products` (`title`, `make`, `model`, `year`, `article`, `description`, `price`, `image`, `category_id`, `published`, `created`, `created_by`, `modified`, `modified_by`) VALUES
                     (
                         '".$title."',
-                        '".prepareString($file, $mysqli)."',
+                        '".prepareString($category_name, $mysqli)."',
+                        '".prepareString($model_name, $mysqli)."',
+                        NULL,
+                        NULL,
+                        NULL,
                         NULL,
                         '".$file."/JPEG/1.jpg',
                         ".$categories[$category].",
@@ -388,10 +412,14 @@
             //insert product
             $article_arr = explode('.', $data[3]);
             if(!empty(trim($data[2])) || $article_arr[0] == '444') {
-                $query = "INSERT INTO `comcar`.`jmla_wcatalog_products` (`title`, `description`, `price`, `image`, `category_id`, `published`, `created`, `created_by`, `modified`, `modified_by`) VALUES
+                $query = "INSERT INTO `comcar`.`jmla_wcatalog_products` (`title`, `make`, `model`, `year`, `article`, `description`, `price`, `image`, `category_id`, `published`, `created`, `created_by`, `modified`, `modified_by`) VALUES
                 (
                     '".prepareString($data[0], $mysqli)."',
-                    '".prepareString($data[1].' '.$data[2], $mysqli)."',
+                    '".prepareString($category_name, $mysqli)."',
+                    '".prepareString($data[1], $mysqli)."',
+                    '".prepareString($data[2], $mysqli)."',
+                    '".prepareString($data[3], $mysqli)."',
+                    NULL,
                     ".prepareInt($data[7]).",
                     '".prepareString($data[3].'.jpg', $mysqli)."',
                     ".$categories[$category].",

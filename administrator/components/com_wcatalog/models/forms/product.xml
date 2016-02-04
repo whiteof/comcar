@@ -9,6 +9,22 @@
 			description="JFIELD_TITLE_DESC" class="inputbox" size="30"
 			required="true" />
 
+		<field name="make" type="text" label="COM_WCATALOG_MAKE"
+			description="COM_WCATALOG_MAKE" class="inputbox" size="30"
+			required="true" />
+
+		<field name="model" type="text" label="COM_WCATALOG_MODEL"
+			description="COM_WCATALOG_MODEL" class="inputbox" size="30"
+			required="false" />
+
+		<field name="year" type="text" label="COM_WCATALOG_YEAR"
+			description="COM_WCATALOG_YEAR" class="inputbox" size="30"
+			required="false" />
+
+		<field name="article" type="text" label="COM_WCATALOG_ARTICLE"
+			description="COM_WCATALOG_ARTICLE" class="inputbox" size="30"
+			required="false" />
+
 		<field name="description" type="editor" buttons="true" hide="pagebreak,readmore"
 			class="inputbox"
 			filter="JComponentHelper::filterText"
