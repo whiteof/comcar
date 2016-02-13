@@ -25,6 +25,10 @@
 			description="COM_WCATALOG_ARTICLE" class="inputbox" size="30"
 			required="false" />
 
+		<field name="price" type="text" label="COM_WCATALOG_PRICE"
+			description="COM_WCATALOG_PRICE" class="inputbox" size="30"
+			required="false" />
+
 		<field name="description" type="editor" buttons="true" hide="pagebreak,readmore"
 			class="inputbox"
 			filter="JComponentHelper::filterText"

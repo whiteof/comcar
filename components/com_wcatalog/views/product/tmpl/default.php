@@ -133,17 +133,15 @@ JHtml::_('behavior.caption');
 					<div class="product-details-title">
 						<?php echo $this->item->title ?>
 					</div>
-					<?php if(!empty($this->item->price)): ?>
-						<div class="product-details-price">
-							 Цена: <?php echo $this->item->price ?> руб.
-						</div>
-					<?php else: ?>
-						<div class="product-details-price">
-							 Цена по запросу
-						</div>
-					<?php endif  ?>
+					<div class="product-details-price">
+						<?php if(!empty($this->item->price)): ?>
+							Цена: <?php echo number_format($this->item->price, 0, '.', ' '); ?> руб.
+						<?php else: ?>
+							Цена по запросу
+						<?php endif ?>
+					</div>
 					<div class="product-details-shortdesc">
-						 <p>
+						<p>
 							<strong><?php echo $this->item->make ?></strong><br />
 							<?php echo $this->item->model ?>
 						</p>
@@ -172,12 +170,25 @@ JHtml::_('behavior.caption');
 												</div>
 											</div>
 											<div class="product-details-price">
-												 Цена: <?php echo $this->item->price ?> руб.
+												<?php if(!empty($this->item->price)): ?>
+													Цена: <?php echo number_format($this->item->price, 0, '.', ' '); ?> руб.
+												<?php else: ?>
+													Цена по запросу
+												<?php endif ?>
 											</div>
 										</div>
 										<div class="col-sm-7">
 											<div class="submit-initial">
 												<form class="wcatalog-order-form" action="post" data-url="<?php echo JURI::base().'ajax/send_email.php'; ?>">
+													<input type="hidden" name="id" value="<?php echo $this->item->id ?>" />
+													<input type="hidden" name="title" value="<?php echo $this->item->title ?>" />
+													<?php
+														if(!empty($this->item->price)) $price = number_format($this->item->price, 0, '.', ' ');
+														else $price = 'по запросу';
+													?>
+													<input type="hidden" name="price" value="<?php echo $price ?>" />
+													<input type="hidden" name="article" value="<?php echo $this->item->article ?>" />
+													<input type="hidden" name="url" value="<?php echo JRoute::_('index.php?option=com_wcatalog&view=product&id='.$this->item->id); ?>" />
 													<div class="form-group">
 														<label for="full_name">Введите ваше имя</label>
 														<input type="text" class="form-control" placeholder="Ф.И.О." name="full_name" id="full_name" />

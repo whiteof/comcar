@@ -1,8 +1,14 @@
 <?php
 
-    $to = "alexdancer86@yahoo.com ";
+    $to = "alexdancer86@yahoo.com";
+    //$to = "victor.yurkin@gmail.com";
     $subject = "Заказ товара";
     
+    $id = $_POST['id'];
+    $title = $_POST['title'];
+    $article = $_POST['article'];
+    $price = $_POST['price'];
+    $url = $_POST['url'];
     $full_name = $_POST['full_name'];
     $phone = $_POST['phone'];
     $email = $_POST['email'];
@@ -13,6 +19,25 @@
                 <title>Заказ товара</title>
             </head>
             <body>
+                <p>Информация о заказе:</p>
+                <table>
+                    <tr>
+                        <th align="right">Наименование: </th>
+                        <td>'.$title.'</td>
+                    </tr>
+                    <tr>
+                        <th align="right">Артикул: </th>
+                        <td>'.$article.'</td>
+                    </tr>
+                    <tr>
+                        <th align="right">Цена: </th>
+                        <td>'.$price.'</td>
+                    </tr>
+                    <tr>
+                        <th align="right">Ссылка на товар: </th>
+                        <td><a href="http://66.175.212.71'.$url.'">http://66.175.212.71'.$url.'</a></td>
+                    </tr>
+                </table>
                 <p>Информация о заказчике:</p>
                 <table>
                     <tr>

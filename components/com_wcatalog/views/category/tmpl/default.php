@@ -154,11 +154,13 @@ JHtml::_('behavior.caption');
 							</div>
 							<div class="product-info">
 								<p><?php echo ucfirst(trim($item->title)) ?></p>
-								<?php if(!empty($item->price)): ?>
-									<div class="price"><?php echo $item->price ?> руб.</div>
-								<?php else: ?>
-									<div class="price">цена по запросу</div>
-								<?php endif ?>
+								<div class="price">
+									<?php if(!empty($item->price)): ?>
+										<?php echo number_format($item->price, 0, '.', ' '); ?> руб.
+									<?php else: ?>
+										Цена по запросу
+									<?php endif ?>
+								</div>
 								<p class="price-desc">
 									<strong><?php echo $item->make ?></strong><br />
 									<?php echo $item->model ?><br />

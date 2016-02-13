@@ -162,7 +162,7 @@ $assoc		= isset($app->item_associations) ? $app->item_associations : 0;
 						<?php echo $this->escape($item->article); ?>
 					</td>					
 					<td class="small hidden-phone">
-						<?php echo $this->escape($item->price); ?>
+						<?php echo number_format($item->price, 0, '.', ' '); ?>
 					</td>					
 					<td class="small hidden-phone">
 						<?php echo $this->escape($item->category_title); ?>

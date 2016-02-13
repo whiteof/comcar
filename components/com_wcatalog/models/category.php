@@ -49,7 +49,7 @@ class WcatalogModelCategory extends JModelList
 					SELECT a.*, b.title as category
 					FROM jmla_wcatalog_categories as a
 					LEFT JOIN jmla_wcatalog_categories as b ON a.parent_id = b.id
-					WHERE a.parent_id='.$category->id.'
+					WHERE a.parent_id='.$category->id.' AND a.published = 1 AND b.published = 1
 				';
 				$db->setQuery($query_string);
 				$items = $db->loadObjectList();
@@ -64,7 +64,7 @@ class WcatalogModelCategory extends JModelList
 					FROM jmla_wcatalog_products as a
 					LEFT JOIN jmla_wcatalog_categories as b ON a.category_id = b.id
 					LEFT JOIN jmla_wcatalog_categories as c ON b.parent_id = c.id
-					WHERE a.category_id='.$category->id.'
+					WHERE a.category_id='.$category->id.' AND a.published = 1 AND b.published = 1 AND c.published = 1
 				';
 				$db->setQuery($query_string);
 				$items = $db->loadObjectList();
